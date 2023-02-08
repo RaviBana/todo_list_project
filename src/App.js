@@ -28,12 +28,12 @@ function App() {
   }
 
   function addTodo(a, b, c) {
-   
-
-      console.log('added', a, b, c)
-      setData([...data, { name: a, age: b, date: c }])
-    
-   
+    if(a==='', b==='', c==='' ){
+     alert('please fill data') 
+    }else{
+    console.log('added', a, b, c)
+    setData([...data, { name: a, age: b, date: c }])
+    }
   }
 
   function UpdateTodo(a,b){
@@ -59,3 +59,8 @@ function App() {
 export default App;
 
 
+// <div className="App">
+//      
+
+//       <Todolist Name={name} Date={date} Age={age}/>
+//     </div>
