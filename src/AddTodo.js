@@ -12,9 +12,9 @@ const AddTodo = ({addTodo}) => {
 
     function submit (e){
         e.preventDefault()
-        if(!name || !age || !date){
-            alert('Fill Data Properly')
-        }
+        // if(!name || !age || !date){
+        //     alert('Fill Data Properly')
+        // }
         console.log(name,age,date)
         addTodo(name, age, date)
         setName('')
