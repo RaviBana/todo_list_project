@@ -20,8 +20,7 @@ const AddTodo = ({addTodo}) => {
         setName('')
         setAge('')
         setDate('')
-        
-    }
+        }
 
     return (
         <div id='form'>
