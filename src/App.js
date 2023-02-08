@@ -1,25 +1,61 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+import Todolist from './Todolist';
+import Todo from './Todo';
+import Footer from './Footer';
+import Header from './Header';
+import AddTodo from './AddTodo';
+
 
 function App() {
+  let localtodo;
+  if (localStorage.getItem('todos') == null) {
+    localtodo = []
+  } else {
+    localtodo = JSON.parse(localStorage.getItem('todos'))
+  }
+
+  const [data, setData] = useState(localtodo)
+  const [update, setUpdate]= useState({})
+
+
+
+  const deleteTodo = (e) => {
+    console.log('e', e)
+    let filtertodo = data.filter((item) => item !== e)
+    setData(filtertodo)
+    console.log(data)
+  }
+
+  function addTodo(a, b, c) {
+   
+
+      console.log('added', a, b, c)
+      setData([...data, { name: a, age: b, date: c }])
+    
+   
+  }
+
+  function UpdateTodo(a,b){
+    // setUpdate({name})
+
+  }
+
+  useEffect(()=>{
+    localStorage.setItem('todos', JSON.stringify(data))
+  },[data])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id='app'>
+      <Header />
+      <AddTodo addTodo={addTodo} />
+      <Todo TodoItem={data} onDelete={deleteTodo} updateTodo={UpdateTodo}/>
+      {/* <Footer /> */}
     </div>
   );
 }
 
 export default App;
+
+
