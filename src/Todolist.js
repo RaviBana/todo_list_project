@@ -3,9 +3,7 @@ import React, { useState } from 'react'
 const Todolist = ({ todoItem, onDelete, updateTodo }) => {
 
     const [search, setSearch] = useState('')
-    // const [name, setname]=useState()
-    // const [age, setAge]=useState()
-    // const [date, setDate]=useState()
+   
 
     console.log(search)
     let searchResults = todoItem;
@@ -61,7 +59,7 @@ const Todolist = ({ todoItem, onDelete, updateTodo }) => {
 
                                     </tr>
                                 )
-                                //   {todoItem.length == 0?'No Todo':''}
+                            
                             }
                             )
                             }
